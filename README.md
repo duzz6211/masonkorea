@@ -22,6 +22,33 @@ npm run dev
 npm run build
 ```
 
+## 🌐 GitHub Pages 배포 (레포: `masonkorea`)
+
+이 프로젝트는 GitHub Pages에서 아래 경로로 서비스되는 것을 전제로 설정되어 있습니다:
+
+- `https://<github-username>.github.io/masonkorea/`
+
+### 배포 스크립트
+
+```bash
+# dist 생성
+npm run build
+
+# gh-pages 브랜치로 dist 배포
+npm run deploy
+```
+
+### 배포 전제 조건 (중요)
+
+- **`dist/` 폴더는 GitHub에 커밋하지 않습니다.** (`.gitignore`에 의해 제외)
+- **`dist/`는 `gh-pages` 브랜치에서만 관리됩니다.**
+- **`main` 브랜치는 소스 코드 전용입니다.**
+
+### 라우팅/새로고침 이슈 방지
+
+GitHub Pages는 SPA 라우팅 새로고침 시 서버가 해당 경로를 알 수 없어 404가 날 수 있습니다.  
+이를 방지하기 위해 현재 프로젝트는 **`HashRouter`** 기반으로 구성되어 **새로고침 시에도 흰 화면 없이 정상 렌더링**되도록 했습니다.
+
 ## 📁 프로젝트 구조
 
 ```
