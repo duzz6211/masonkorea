@@ -1,0 +1,163 @@
+/* ========================================
+   Floating Button Styles
+   ======================================== */
+
+.floating {
+  position: fixed;
+  right: var(--spacing-lg);
+  bottom: var(--spacing-lg);
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-sm);
+}
+
+/* Toggle Button */
+.floating__toggle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  border: none;
+  cursor: pointer;
+}
+
+.floating__toggle:hover {
+  background-color: var(--color-primary-dark);
+  transform: scale(1.05);
+}
+
+.floating__toggle svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Expanded Buttons */
+.floating__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all var(--transition-base);
+}
+
+.floating--expanded .floating__buttons {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.floating__btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: 28px;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.floating__btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.floating__btn--kakao {
+  background-color: #fee500;
+  color: #3c1e1e;
+}
+
+.floating__btn--kakao:hover {
+  background-color: #fdd835;
+  transform: translateX(-4px);
+}
+
+.floating__btn--phone {
+  background-color: var(--color-success);
+}
+
+.floating__btn--phone:hover {
+  background-color: #2f855a;
+  transform: translateX(-4px);
+}
+
+/* Quick Phone (Mobile Only) */
+.floating__quick-phone {
+  display: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-success);
+  color: var(--color-white);
+  box-shadow: var(--shadow-lg);
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.floating__quick-phone:hover {
+  transform: scale(1.05);
+}
+
+.floating__quick-phone svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .floating {
+    right: var(--spacing-md);
+    bottom: var(--spacing-md);
+    flex-direction: row;
+    align-items: flex-end;
+    gap: var(--spacing-sm);
+  }
+
+  .floating__toggle {
+    width: 52px;
+    height: 52px;
+  }
+
+  .floating__quick-phone {
+    display: flex;
+    width: 52px;
+    height: 52px;
+  }
+
+  .floating__buttons {
+    position: absolute;
+    bottom: 64px;
+    right: 0;
+    align-items: flex-end;
+  }
+
+  .floating__btn span {
+    display: none;
+  }
+
+  .floating__btn {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+  }
+}
+
